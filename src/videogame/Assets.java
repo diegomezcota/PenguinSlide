@@ -29,5 +29,10 @@ public class Assets {
         background = ImageLoader.loadImage("/images/spongebob.jpg");
         player = ImageLoader.loadImage("/images/michael.png");
         // getting the sprites from the picture
+        sprites = ImageLoader.loadImage("/images/penguing.png");
+        // creating array of images before animations
+        SpriteSheet spritehseet = new SpriteSheet(sprites);
+        
+        
     }   
 }
