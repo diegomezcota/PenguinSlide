@@ -31,5 +31,24 @@ public class Animation {
         return frames[index];
     }
     
+    /*
+    * to update the animation to get the right index of the frame to paint
+    */
+    public void tick(){
+        // acumulating time from the previous tick to this one
+        timer += System.currentTimeMillis() - lastTime;
+        // updating the lastTime for the next tick
+        lastTime = System.currentTimeMillis();
+        // check the timer to increase the index
+        if (timer > speed){
+            ++index;
+            timer = 0;
+            // check index not to get out of the bounds
+            if (index >= frames.length){
+                index = 0;
+            }
+        }
+    }   
+        
     
 }
