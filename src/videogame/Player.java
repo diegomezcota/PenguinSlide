@@ -167,8 +167,6 @@ public class Player extends Item {
     public void render(Graphics g) {
         if (colision) {
             g.drawImage(Assets.player, getX(), getY(), getWidth(), getHeight(), null);
-        } else {
-            g.drawImage(Assets.dizzyPlayer, getX(), getY(), getWidth(), getHeight(), null);
-        }
+        } 
     }
 }

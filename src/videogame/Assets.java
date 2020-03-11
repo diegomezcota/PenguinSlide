@@ -29,10 +29,19 @@ public class Assets {
         background = ImageLoader.loadImage("/images/spongebob.jpg");
         player = ImageLoader.loadImage("/images/michael.png");
         // getting the sprites from the picture
-        sprites = ImageLoader.loadImage("/images/penguing.png");
+        sprites = ImageLoader.loadImage("/images/penguin.png");
         // creating array of images before animations
-        SpriteSheet spritehseet = new SpriteSheet(sprites);
-        
-        
+        SpriteSheet spritesheet = new SpriteSheet(sprites);
+        playerUp = new BufferedImage[9];
+        playerLeft = new BufferedImage[9];
+        playerDown = new BufferedImage[9];
+        playerRight = new BufferedImage[9];
+        // cropping the pictures from the sheet into the array
+        for (int i = 0; i < 9; ++i){
+             playerRight[i] = spritesheet.crop(i*77, 28, 77, 64);
+             playerLeft[i] = spritesheet.crop(i*77, 105, 77, 64);
+             playerDown[i] = spritesheet.crop(i*77, 182, 77, 64);
+             playerUp[i] = spritesheet.crop(i*77, 259, 77, 64);
+        }
     }   
 }
