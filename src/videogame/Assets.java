@@ -14,7 +14,11 @@ import java.awt.image.BufferedImage;
 public class Assets {
     public static BufferedImage background; // to store background image
     public static BufferedImage player;     // to store the player image
-    public static BufferedImage dizzyPlayer;    // to store the dizzy player image
+    public static BufferedImage sprites;    // to store the sprites
+    public static BufferedImage playerUp[]; // pictures to go up
+    public static BufferedImage playerLeft[];   // pictures to go left
+    public static BufferedImage playerDown[];   // pictures to go down
+    public static BufferedImage playerRight[];  // pictures to right
 
     /**
      * initializing the images of the game
@@ -24,7 +28,6 @@ public class Assets {
         // load every image
         background = ImageLoader.loadImage("/images/spongebob.jpg");
         player = ImageLoader.loadImage("/images/michael.png");
-        dizzyPlayer = ImageLoader.loadImage("/images/crashed.png");
-    }
-    
+        // getting the sprites from the picture
+    }   
 }
