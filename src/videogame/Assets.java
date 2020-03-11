@@ -18,6 +18,7 @@ public class Assets {
 
     /**
      * initializing the images of the game
+     * HOLI
      */
     public static void init() {
         // load every image
