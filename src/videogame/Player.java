@@ -23,6 +23,15 @@ public class Player extends Item {
     private Animation animationDown;    // to store the animation for going down
     private Animation animationRight;    // to store the animation for going right
 
+    /**
+     * To build a Player object
+     * @param x an <code>int</code> value to get the x coordinate
+     * @param y an <code>int</code> value to get the y coordinate
+     * @param direction an <code>int</code> value to get the direction
+     * @param width an <code>int</code> value to get the width
+     * @param height an <code>int</code> value to get the height
+     * @param game  a <code>game</code> object to get outside elements
+     */
     public Player(int x, int y, int direction, int width, int height, Game game) {
         // initialize every value
         super(x, y, width, height);
@@ -31,6 +40,11 @@ public class Player extends Item {
         this.game = game;
         this.colision = false;
         this.colisionTimer = 15;
+        
+        this.animationUp = new Animation(Assets.playerUp, 100);
+        this.animationLeft = new Animation(Assets.playerLeft, 100);
+        this.animationDown = new Animation(Assets.playerDown, 100);
+        this.animationRight = new Animation(Assets.playerRight, 100);
     }
 
     // returns the direction of the player
