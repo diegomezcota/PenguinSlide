@@ -144,10 +144,19 @@ public class Player extends Item {
         updateMoves();
         // updating animation
         this.animationRight.tick();
+        this.animationLeft.tick();
+        this.animationUp.tick();
+        this.animationDown.tick();
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(animationRight.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
+        if (getDirection() == "RIGHT")
+            g.drawImage(animationRight.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
+        else if (getDirection() == "LEFT")
+            g.drawImage(animationLeft.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
+        else if (getDirection() == "UP")
+            g.drawImage(animationUp.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
+        else g.drawImage(animationDown.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
     }
 }
