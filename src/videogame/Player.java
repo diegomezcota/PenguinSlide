@@ -175,16 +175,13 @@ public class Player extends Item {
 
     @Override
     public void tick() {
-        checkColisionSprite();
-        moveCurrentDirection();
-        updateMoves();
-        manageColisions();
+        // updating animation
+        this.animationRight.tick();
     }
 
     @Override
     public void render(Graphics g) {
-        if (colision) {
-            g.drawImage(Assets.player, getX(), getY(), getWidth(), getHeight(), null);
-        } 
+        moveCurrentDirection();
+        g.drawImage(animationRight.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
     }
 }
