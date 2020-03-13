@@ -9,7 +9,7 @@ import java.awt.Graphics;
 
 /**
  *
- * @author antoniomejorado
+ * @author mairna mtz
  */
 public class Player extends Item {
 
@@ -18,6 +18,10 @@ public class Player extends Item {
     private boolean colision;   // checks if a colision is made with the limits of the canvas
     private String direction;   // direction of the player
     private Game game;          // to have a reference for the main game
+    private Animation animationUp;  // to store the animation for going up
+    private Animation animationLeft;    // to store the animation for going left
+    private Animation animationDown;    // to store the animation for going down
+    private Animation animationRight;    // to store the animation for going right
 
     public Player(int x, int y, int direction, int width, int height, Game game) {
         // initialize every value
