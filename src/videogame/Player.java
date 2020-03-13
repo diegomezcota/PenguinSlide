@@ -90,55 +90,19 @@ public class Player extends Item {
     public void updateMoves() {
         // moving player depending on flags
         if (game.getKeyManager().up) {
-            if ("UP".equals(getDirection())) {
-                velocity++;
-            } else if ("DOWN".equals(getDirection())) {
-                reduceVelocity();
-                if (velocity == 1) {
-                    setDirection("UP");
-                }
-            } else {
-                setDirection("UP");
-            }
+            setDirection("UP");
             game.getKeyManager().releaseUp();
         }
         if (game.getKeyManager().down) {
-            if ("DOWN".equals(getDirection())) {
-                velocity++;
-            } else if ("UP".equals(getDirection())) {
-                reduceVelocity();
-                if (velocity == 1) {
-                    setDirection("DOWN");
-                }
-            } else {
-                setDirection("DOWN");
-            }
+            setDirection("DOWN");
             game.getKeyManager().releaseDown();
         }
         if (game.getKeyManager().left) {
-            if ("LEFT".equals(direction)) {
-                velocity++;
-            } else if ("RIGHT".equals(getDirection())) {
-                reduceVelocity();
-                if (velocity == 1) {
-                    setDirection("LEFT");
-                }
-            } else {
-                setDirection("LEFT");
-            }
+            setDirection("LEFT");
             game.getKeyManager().releaseLeft();
         }
         if (game.getKeyManager().right) {
-            if ("RIGHT".equals(getDirection())) {
-                velocity++;
-            } else if ("LEFT".equals(getDirection())) {
-                reduceVelocity();
-                if (velocity == 1) {
-                    setDirection("RIGHT");
-                }
-            } else {
-                setDirection("RIGHT");
-            }
+            setDirection("RIGHT");
             game.getKeyManager().releaseRight();
         }
     }
@@ -175,13 +139,15 @@ public class Player extends Item {
 
     @Override
     public void tick() {
+        // moving character
+        moveCurrentDirection();
+        updateMoves();
         // updating animation
         this.animationRight.tick();
     }
 
     @Override
     public void render(Graphics g) {
-        moveCurrentDirection();
         g.drawImage(animationRight.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
     }
 }
